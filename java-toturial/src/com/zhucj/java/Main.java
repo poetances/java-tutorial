@@ -4,21 +4,21 @@ package com.zhucj.java;
 // 点击装订区域中的 <icon src="AllIcons.Actions.Execute"/> 图标。
 public class Main {
     public static void main(String[] args) {
-        //TIP 当文本光标位于高亮显示的文本处时按 <shortcut actionId="ShowIntentionActions"/>
-        // 查看 IntelliJ IDEA 建议如何修正。
-        System.out.printf("Hello and welcome!");
+        System.out.println("Hello and welcome!");
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP 按 <shortcut actionId="Debug"/> 开始调试代码。我们已经设置了一个 <icon src="AllIcons.Debugger.Db_set_breakpoint"/> 断点
-            // 但您始终可以通过按 <shortcut actionId="ToggleLineBreakpoint"/> 添加更多断点。
-            System.out.println("i = " + i);
-        }
     }
 }
 
 /*
+Java 命名规范总结：
+项目名：全小写，中划线分隔 (my-project)
+包名：全小写，无分隔符 (com.zhucj.java)
+文件夹：随包名，全小写
+类名：PascalCase (UserService)
+方法/变量：camelCase (getName, userName)
+常量：ALL_UPPER_CASE (MAX_VALUE)
 java-tutorial
-└── src
+└
     ├── com
     │   └── zhucj
     │       └── java
