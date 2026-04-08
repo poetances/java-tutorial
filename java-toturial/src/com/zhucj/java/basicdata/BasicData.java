@@ -14,16 +14,19 @@ package com.zhucj.java.basicdata;
  *       注释颜色是 IDE 语法高亮功能，与语言本身无关
  */
 public class BasicData {
+    // 定义常量。常量通常以final修饰
+    final double PI = 3.14;
 
-    /**
-     * 主方法入口
-     */
+    int age;
+    String name;
+
     public static void main(String[] args) {
         printLiterals();       // 字面量示例
         printIntegerTypes();   // 整数类型
         printFloatTypes();     // 浮点类型
         printCharType();       // 字符类型
         printBooleanType();    // 布尔类型
+        printZeroValue();      // 零值
     }
 
     /**
@@ -161,5 +164,18 @@ public class BasicData {
         System.out.println("true: " + flag);
         System.out.println("false: " + flag2);
         System.out.println();
+    }
+
+    /*
+    Go vs Java 对比
+    特性	Go	Java
+    局部变量	✅ 零值可用	❌ 必须初始化
+    成员变量	✅ 零值可用	✅ 零值可用
+    * **/
+    public static void printZeroValue() {
+        // java中成员变量的零值可用。局部变量不行
+        BasicData basicData = new BasicData();
+        System.out.println(basicData.age);  // 0
+        System.out.println(basicData.name); // null
     }
 }
