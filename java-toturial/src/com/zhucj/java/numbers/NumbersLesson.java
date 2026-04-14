@@ -43,7 +43,7 @@ package com.zhucj.java.numbers;
  * @since 2026-04-06
  * @see <a href="https://docs.oracle.com/javase/tutorial/java/data/index.html">Oracle: 数字和字符串</a>
  */
-public class Numbers {
+public class NumbersLesson {
 
     public static void main(String[] args) {
         // 基本类型 vs 包装类型
