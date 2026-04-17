@@ -1,7 +1,6 @@
 package com.zhucj.java.array;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * =====================================================
@@ -24,9 +23,10 @@ import java.util.stream.Collectors;
  * 5. 填充和替换    - fill, copy, replaceAll等
  * 6. 其他工具      - frequency, disjoint, rotate等
  *
+ * Collections工具类在现在 Java 开发中使用不多。主要是很多操作对象类都已经实现。
  * =====================================================
  */
-public class CollectionUtils {
+public class CollectionsLesson {
 
     public static void main(String[] args) {
         System.out.println("========== 排序操作 ==========");
