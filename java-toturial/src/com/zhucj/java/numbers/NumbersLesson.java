@@ -34,7 +34,6 @@ package com.zhucj.java.numbers;
  *  ---Long: Numbers
  *  ---Float: Numbers
  *  ---Double: Numbers
- *  ---Character: Numbers
  *  Boolean: Object
  *  Character: Object
  *
