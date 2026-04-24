@@ -1,5 +1,7 @@
 package com.zhucj.java.array;
 
+import java.util.Arrays;
+
 /**
  * =====================================================
  * Java 数组（Array）详解
