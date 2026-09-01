@@ -40,7 +40,7 @@ public class SerializableLessonSimple {
         System.out.println("--- 1. 基本序列化 ---");
         
         // 创建可序列化的对象
-        User user = new User("张三", 25, "zhangsan@example.com");
+        SimpleUser user = new SimpleUser("张三", 25, "zhangsan@example.com");
         System.out.println("原始对象: " + user);
         
         // 序列化到文件
@@ -57,7 +57,7 @@ public class SerializableLessonSimple {
             // 反序列化
             FileInputStream fileIn = new FileInputStream(filename);
             ObjectInputStream in = new ObjectInputStream(fileIn);
-            User deserializedUser = (User) in.readObject();
+            SimpleUser deserializedUser = (SimpleUser) in.readObject();
             in.close();
             fileIn.close();
             System.out.println("✓ 对象已反序列化: " + deserializedUser);
@@ -75,7 +75,7 @@ public class SerializableLessonSimple {
     private static void transientExample() {
         System.out.println("--- 2. transient 关键字 ---");
         
-        Employee emp = new Employee("李四", 30, "secret123", "lisi@example.com");
+        SimpleEmployee emp = new SimpleEmployee("李四", 30, "secret123", "lisi@example.com");
         System.out.println("原始对象: " + emp);
         
         String filename = "employee.ser";
@@ -87,7 +87,7 @@ public class SerializableLessonSimple {
             
             // 反序列化
             ObjectInputStream in = new ObjectInputStream(new FileInputStream(filename));
-            Employee deserializedEmp = (Employee) in.readObject();
+            SimpleEmployee deserializedEmp = (SimpleEmployee) in.readObject();
             in.close();
             
             System.out.println("反序列化后: " + deserializedEmp);
@@ -106,7 +106,7 @@ public class SerializableLessonSimple {
     private static void customSerialization() {
         System.out.println("--- 3. 自定义序列化 ---");
         
-        Config config = new Config("数据库配置", "localhost", 3306, "admin", "password123");
+        SimpleConfig config = new SimpleConfig("数据库配置", "localhost", 3306, "admin", "password123");
         System.out.println("原始对象: " + config);
         
         String filename = "config.ser";
@@ -118,7 +118,7 @@ public class SerializableLessonSimple {
             
             // 反序列化
             ObjectInputStream in = new ObjectInputStream(new FileInputStream(filename));
-            Config deserializedConfig = (Config) in.readObject();
+            SimpleConfig deserializedConfig = (SimpleConfig) in.readObject();
             in.close();
             
             System.out.println("反序列化后: " + deserializedConfig);
@@ -147,10 +147,10 @@ public class SerializableLessonSimple {
     private static void serializeCollection() {
         System.out.println("--- 5. 序列化集合 ---");
         
-        List<User> users = new ArrayList<>();
-        users.add(new User("王五", 28, "wangwu@example.com"));
-        users.add(new User("赵六", 32, "zhaoliu@example.com"));
-        users.add(new User("孙七", 26, "sunqi@example.com"));
+        List<SimpleUser> users = new ArrayList<>();
+        users.add(new SimpleUser("王五", 28, "wangwu@example.com"));
+        users.add(new SimpleUser("赵六", 32, "zhaoliu@example.com"));
+        users.add(new SimpleUser("孙七", 26, "sunqi@example.com"));
         
         System.out.println("原始列表: " + users);
         
@@ -164,7 +164,7 @@ public class SerializableLessonSimple {
             // 反序列化列表
             ObjectInputStream in = new ObjectInputStream(new FileInputStream(filename));
             @SuppressWarnings("unchecked")
-            List<User> deserializedUsers = (List<User>) in.readObject();
+            List<SimpleUser> deserializedUsers = (List<SimpleUser>) in.readObject();
             in.close();
             
             System.out.println("反序列化列表: " + deserializedUsers);
@@ -180,7 +180,7 @@ public class SerializableLessonSimple {
  * 基本的可序列化类
  * 必须实现 Serializable 接口
  */
-class User implements Serializable {
+class SimpleUser implements Serializable {
     // 建议显式声明 serialVersionUID
     private static final long serialVersionUID = 1L;
     
@@ -188,7 +188,7 @@ class User implements Serializable {
     private int age;
     private String email;
     
-    public User(String name, int age, String email) {
+    public SimpleUser(String name, int age, String email) {
         this.name = name;
         this.age = age;
         this.email = email;
@@ -208,7 +208,7 @@ class User implements Serializable {
  * 使用 transient 关键字的类
  * transient 字段不会被序列化
  */
-class Employee implements Serializable {
+class SimpleEmployee implements Serializable {
     private static final long serialVersionUID = 1L;
     
     private String name;
@@ -216,7 +216,7 @@ class Employee implements Serializable {
     private transient String password;  // 敏感信息，不序列化
     private String email;
     
-    public Employee(String name, int age, String password, String email) {
+    public SimpleEmployee(String name, int age, String password, String email) {
         this.name = name;
         this.age = age;
         this.password = password;
@@ -234,7 +234,7 @@ class Employee implements Serializable {
  * 自定义序列化的类
  * 通过 writeObject 和 readObject 控制序列化过程
  */
-class Config implements Serializable {
+class SimpleConfig implements Serializable {
     private static final long serialVersionUID = 2L;
     
     private String name;
@@ -243,7 +243,7 @@ class Config implements Serializable {
     private String username;
     private transient String password;  // 不直接序列化密码
     
-    public Config(String name, String host, int port, String username, String password) {
+    public SimpleConfig(String name, String host, int port, String username, String password) {
         this.name = name;
         this.host = host;
         this.port = port;
