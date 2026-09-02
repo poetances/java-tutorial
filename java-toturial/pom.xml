@@ -49,6 +49,11 @@
     </dependencies>
 
     <build>
+        <!-- 项目源码不在 Maven 标准 src/main/java，而在 src，需显式声明 -->
+        <sourceDirectory>src</sourceDirectory>
+        <!-- 编译输出目录与 IntelliJ 默认 out 保持一致 -->
+        <outputDirectory>out</outputDirectory>
+
         <plugins>
             <!-- Maven编译插件 -->
             <plugin>
